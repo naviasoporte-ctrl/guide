@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guía de uso - NavIA</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0b1b2b;
+      --muted:#47647a;
+      --line:#e7eef6;
+      --blue:#1677ff;
+      --blue2:#15b8d6;
+      --card:#ffffff;
+      --shadow: 0 18px 45px rgba(10, 30, 50, .10);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a{color:inherit}
+
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky; top:0; z-index:20;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .brand img{
+      width:34px; height:34px; border-radius:10px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+    }
+    .navlinks{
+      display:flex; gap:16px; color:var(--muted);
+      font-weight:700; font-size:.95rem;
+    }
+    .navlinks a{text-decoration:none}
+    .navlinks a:hover{color: var(--text);}
+
+    main{
+      padding:32px 0 40px;
+    }
+
+    h1{
+      font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+      line-height:1.15;
+      margin:0 0 10px;
+      letter-spacing:-.3px;
+    }
+    h2{
+      font-size:1rem;
+      margin:0 0 8px;
+      letter-spacing:-.1px;
+    }
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      border:1px solid var(--line);
+      background: linear-gradient(90deg, rgba(22,119,255,.08), rgba(21,184,214,.06));
+      padding:6px 10px; border-radius:999px;
+      color: var(--muted); font-weight:800; font-size:.82rem;
+    }
+
+    .muted{color:var(--muted);}
+
+    .layout{
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap:18px;
+      align-items:flex-start;
+      margin-top:18px;
+    }
+
+    .cards{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:16px 18px;
+      box-shadow: 0 10px 22px rgba(10,30,50,.06);
+    }
+
+    p, li{
+      font-size:.93rem;
+      line-height:1.6;
+      color:#374151;
+      margin:0 0 8px;
+    }
+    ul{padding-left:1.1rem; margin:0 0 4px;}
+    li{margin-bottom:6px;}
+
+    .videoCard{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:14px 16px 16px;
+      box-shadow: 0 10px 22px rgba(10,30,50,.06);
+      position:sticky;
+      top:90px;
+    }
+    .videoTitle{
+      font-size:.95rem;
+      font-weight:800;
+      margin:0 0 6px;
+      color: var(--text);
+    }
+    .videoMuted{
+      font-size:.85rem;
+      color: var(--muted);
+      margin:0 0 10px;
+    }
+    .videoFrame{
+      width:100%;
+      aspect-ratio:16 / 9;
+      border-radius:14px;
+      overflow:hidden;
+      background:#000;
+      border:1px solid var(--line);
+    }
+    .videoFrame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+    .videoNote{
+      margin-top:8px;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+
+    .sectionLabel{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:rgba(22,119,255,.06);
+      border:1px solid rgba(22,119,255,.18);
+      font-size:.78rem;
+      font-weight:700;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .miniTitle{
+      font-size:.9rem;
+      font-weight:700;
+      margin:8px 0 4px;
+      color:var(--text);
+    }
+
+    footer{
+      border-top: 1px solid var(--line);
+      background:#fff;
+      padding: 26px 0 34px;
+      color: var(--muted);
+    }
+    .footerGrid{
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      justify-content: center;
+      column-gap: 48px;
+      row-gap: 18px;
+      padding-top: 10px;
+    }
+    .fTitle{
+      color: var(--text);
+      font-weight:900;
+      margin:0 0 10px;
+      font-size:.95rem;
+    }
+    .fLink{
+      display:block;
+      text-decoration:none;
+      color: var(--muted);
+      padding:6px 0;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .fLink:hover{color: var(--text);}
+    .footBottom{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top:1px solid var(--line);
+      font-size:.9rem;
+      text-align:center;
+    }
+
+    @media (max-width: 980px){
+      .navlinks{display:none;}
+      main{padding-top:24px;}
+      .layout{
+        grid-template-columns: minmax(0,1fr);
+      }
+      .videoCard{
+        position:static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="https://naviasoporte-ctrl.github.io/web/#top">
+        <img src="./icon.png" alt="NavIA logo">
+        <span>NavIA</span>
+      </a>
+      <nav class="navlinks">
+        <a href="https://naviasoporte-ctrl.github.io/web/#funciones">Funciones</a>
+        <a href="https://naviasoporte-ctrl.github.io/web/#capturas">Capturas</a>
+        <a href="https://naviasoporte-ctrl.github.io/web/#descarga">Descarga</a>
+        <a href="https://naviasoporte-ctrl.github.io/web/#soporte">Soporte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Cabecera guía de uso -->
+      <div class="card" style="margin-bottom:10px;">
+        <h1>Guía de uso de NavIA</h1>
+        <p class="muted">
+          Esta guía te ayuda a interpretar las pantallas principales de NavIA y a sacarle partido a los datos de tiempo y mar
+          (viento y rachas, oleaje, mar de fondo, webcams, mapa y brújula).
+        </p>
+        <p class="muted">
+          <span class="pill">Formato</span>&nbsp;Guía rápida + vídeo explicativo
+        </p>
+      </div>
+
+      <!-- Layout 2 columnas: texto izquierda, vídeo derecha -->
+      <div class="layout">
+        <!-- Columna izquierda: secciones de la guía -->
+        <div class="cards">
+          <section class="card" id="pantalla-principal">
+            <div class="sectionLabel">01 · Pantalla principal</div>
+            <h2>Pantalla principal</h2>
+            <p>
+              Desde la pantalla de inicio puedes buscar cualquier ubicación y ver un resumen rápido del tiempo y del mar
+              en esa zona (costa, puerto o ciudad cercana).
+            </p>
+            <ul>
+              <li>Usa el buscador superior para localizar una ciudad, puerto o zona costera.</li>
+              <li>Guarda o elimina la ubicación de favoritos con el icono del corazón.</li>
+              <li>En “Lugares favoritos” verás accesos rápidos a tus ubicaciones guardadas.</li>
+              <li>La tarjeta principal muestra valores actuales, incluyendo viento, dirección y rachas cuando hay datos.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="detalle-ubicacion">
+            <div class="sectionLabel">02 · Detalle de ubicación</div>
+            <h2>Detalles de ubicación</h2>
+            <p>
+              Al abrir una ubicación se muestran tarjetas con información meteorológica y marítima para consulta rápida
+              y accesos a funciones avanzadas.
+            </p>
+            <ul>
+              <li>Comprueba estado del cielo, temperatura y tarjetas náuticas (brújula, oleaje, mar de fondo, etc.).</li>
+              <li>La Escala Beaufort traduce la velocidad del viento a una descripción más intuitiva.</li>
+              <li>En la misma pantalla encontrarás el pronóstico por días para planificar la semana.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="pronostico">
+            <div class="sectionLabel">03 · Pronóstico por días y horas</div>
+            <h2>Pronóstico: días y horas</h2>
+            <p>
+              El pronóstico te permite comparar días entre sí y, dentro de cada día, ver la evolución hora a hora de clima
+              y mar para elegir la mejor ventana.
+            </p>
+            <ul>
+              <li>Pronóstico por días: compara máximas, mínimas y estado del cielo en una lista semanal.</li>
+              <li>Al tocar un día, se actualizan las secciones vinculadas a esa fecha.</li>
+              <li>Pronóstico por horas: muestra bloques de Clima, Viento, Oleaje y Mar de fondo.</li>
+              <li>En “Viento” se ve la velocidad, la racha (si hay datos) y la dirección representada con flechas.</li>
+              <li>Desliza horizontalmente cada bloque para ver más horas del día seleccionado.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="mar-por-horas">
+            <div class="sectionLabel">04 · Mar por horas</div>
+            <h2>Secciones por horas (mar)</h2>
+            <p>
+              Además del viento, puedes analizar cómo cambia el estado del mar a lo largo del día para afinar salidas
+              y maniobras.
+            </p>
+            <ul>
+              <li>Oleaje: altura, período y dirección por hora.</li>
+              <li>Mar de fondo: altura, período y dirección por hora.</li>
+              <li>Las flechas ayudan a ver de un vistazo desde dónde llega el oleaje o el swell.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="webcams">
+            <div class="sectionLabel">05 · Webcams en vivo</div>
+            <h2>Webcams en vivo</h2>
+            <p>
+              Las webcams te permiten confirmar visualmente el estado del mar y del cielo cerca de la ubicación
+              consultada antes de salir.
+            </p>
+            <ul>
+              <li>Se listan cámaras disponibles en la zona cuando hay proveedores compatibles.</li>
+              <li>Pulsa una webcam para abrirla en grande en el navegador o en el visor del proveedor.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="mapa-ampliado">
+            <div class="sectionLabel">06 · Mapa ampliado</div>
+            <h2>Mapa ampliado</h2>
+            <p>
+              El mapa ampliado te permite explorar la previsión de forma espacial y seguir cómo cambian viento y mar
+              a lo largo del tiempo.
+            </p>
+            <ul>
+              <li>Abre el mapa ampliado desde la tarjeta de mapa en el detalle de la ubicación.</li>
+              <li>Usa el control horario para avanzar o retroceder en el día.</li>
+              <li>Activa capas de Viento, Oleaje y Mar de fondo para comparar direcciones e intensidades.</li>
+              <li>En el mapa también se muestran rachas cuando el modelo las proporciona.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="brujula">
+            <div class="sectionLabel">07 · Brújula interactiva</div>
+            <h2>Brújula interactiva</h2>
+            <p>
+              La brújula ayuda a interpretar direcciones de viento, oleaje y mar de fondo usando grados y puntos
+              cardinales, sin tener que imaginar el rumbo mentalmente.
+            </p>
+            <ul>
+              <li>Activa o desactiva capas (viento, oleaje, mar de fondo) según lo que quieras ver.</li>
+              <li>Consulta la orientación en grados y el punto cardinal correspondiente.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="viento">
+            <div class="sectionLabel">08 · Viento actual y pronóstico</div>
+            <h2>Viento: actual vs. pronóstico</h2>
+            <p>
+              El viento se muestra como valor actual en el resumen y como serie horaria en las pantallas de detalle,
+              para que puedas comparar la situación de ahora con lo previsto.
+            </p>
+            <ul>
+              <li>Viento actual: aparece en la pantalla principal como parte del resumen (velocidad, dirección, racha).</li>
+              <li>Pronóstico por horas: se ve en el bloque “Viento” dentro de “Condiciones por horas”.</li>
+              <li>Rachas: destacan los picos de viento tanto en la vista horaria como en el mapa ampliado.</li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- Columna derecha: vídeo de la guía -->
+        <aside class="videoCard">
+          <p class="videoTitle">Vídeo de introducción</p>
+          <p class="videoMuted">
+            En este vídeo se recorre la App paso a paso: pantalla principal, detalle de ubicación, pronóstico por días y horas,
+            mapa ampliado, webcams y brújula.
+          </p>
+          <div class="videoFrame">
+            <!-- Sustituye el src por la URL real de tu vídeo (YouTube, Vimeo, etc.) -->
+            <iframe
+              src="https://www.youtube.com/embed/XXXXXXXXXXX"
+              title="Guía de uso NavIA"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="videoNote">
+            Consejo: abre el vídeo a pantalla completa si quieres seguir la guía mientras navegas por la App en tu dispositivo.
+          </p>
+
+          <p class="miniTitle">Atajos rápidos</p>
+          <ul>
+            <li><a href="#pantalla-principal">Ir a pantalla principal</a></li>
+            <li><a href="#detalle-ubicacion">Ver detalle de ubicación</a></li>
+            <li><a href="#pronostico">Pronóstico por días y horas</a></li>
+            <li><a href="#mapa-ampliado">Usar el mapa ampliado</a></li>
+            <li><a href="#brujula">Brújula interactiva</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <p class="fTitle">NavIA</p>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#funciones">Funciones</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#capturas">Capturas</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#descarga">Descarga</a>
+        </div>
+
+        <div>
+          <p class="fTitle">Legal</p>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/privacy/" target="_blank" rel="noopener">Privacidad</a>
+        </div>
+
+        <div>
+          <p class="fTitle">Ayuda</p>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/support/" target="_blank" rel="noopener">Soporte</a>
+        </div>
+
+        <div>
+          <p class="fTitle">Contacto</p>
+          <a class="fLink" href="mailto:navia.soporte@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footBottom">
+        <span>© <span id="y"></span> NavIA. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
