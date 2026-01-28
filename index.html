@@ -2,8 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Guía de uso - NavIA</title>
+  <meta name="description" content="Guía de uso de NavIA: aprende a interpretar las pantallas principales, el pronóstico por días y horas, el mapa ampliado, las webcams y la brújula." />
+
+  <link rel="icon" href="./icon.png" />
+
+  <meta property="og:title" content="Guía de uso - NavIA" />
+  <meta property="og:description" content="Vídeo y guía rápida para aprender a usar NavIA: tiempo, mar, calidad del aire y herramientas de navegación." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
@@ -26,11 +33,7 @@
       color: var(--text);
     }
     a{color:inherit}
-
-    .container{
-      width:min(var(--max), calc(100% - 40px));
-      margin:0 auto;
-    }
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
 
     header{
       position:sticky; top:0; z-index:20;
@@ -42,19 +45,9 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0; gap:16px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800;
-      text-decoration:none;
-    }
-    .brand img{
-      width:34px; height:34px; border-radius:10px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.10);
-    }
-    .navlinks{
-      display:flex; gap:16px; color:var(--muted);
-      font-weight:700; font-size:.95rem;
-    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; text-decoration:none;}
+    .brand img{width:34px; height:34px; border-radius:10px; box-shadow: 0 10px 22px rgba(0,0,0,.10);}
+    .navlinks{display:flex; gap:16px; color:var(--muted); font-weight:700; font-size:.95rem;}
     .navlinks a{text-decoration:none}
     .navlinks a:hover{color: var(--text);}
 
@@ -84,6 +77,7 @@
 
     .muted{color:var(--muted);}
 
+    /* Layout 2 columnas de la guía */
     .layout{
       display:grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -187,20 +181,8 @@
       row-gap: 18px;
       padding-top: 10px;
     }
-    .fTitle{
-      color: var(--text);
-      font-weight:900;
-      margin:0 0 10px;
-      font-size:.95rem;
-    }
-    .fLink{
-      display:block;
-      text-decoration:none;
-      color: var(--muted);
-      padding:6px 0;
-      font-weight:700;
-      font-size:.9rem;
-    }
+    .fTitle{color: var(--text); font-weight:900; margin:0 0 10px; font-size:.95rem;}
+    .fLink{display:block; text-decoration:none; color: var(--muted); padding:6px 0; font-weight:700;}
     .fLink:hover{color: var(--text);}
     .footBottom{
       display:flex;
@@ -209,7 +191,7 @@
       padding-top: 18px;
       margin-top: 18px;
       border-top:1px solid var(--line);
-      font-size:.9rem;
+      font-size:.92rem;
       text-align:center;
     }
 
@@ -224,19 +206,30 @@
       }
     }
   </style>
+
+  <!-- Google tag (gtag.js), igual que en la web principal -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGCDVBYR3B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DGCDVBYR3B');
+  </script>
 </head>
 
 <body>
   <header>
     <div class="container nav">
+      <!-- Volver a la landing principal -->
       <a class="brand" href="https://naviasoporte-ctrl.github.io/web/#top">
         <img src="./icon.png" alt="NavIA logo">
         <span>NavIA</span>
       </a>
       <nav class="navlinks">
         <a href="https://naviasoporte-ctrl.github.io/web/#funciones">Funciones</a>
-        <a href="https://naviasoporte-ctrl.github.io/web/#capturas">Capturas</a>
+        <a href="https://naviasoporte-ctrl.github.io/web/#capturas">Pantallas</a>
         <a href="https://naviasoporte-ctrl.github.io/web/#descarga">Descarga</a>
+        <a href="https://naviasoporte-ctrl.github.io/guide/">Guía de uso</a>
         <a href="https://naviasoporte-ctrl.github.io/web/#soporte">Soporte</a>
       </nav>
     </div>
@@ -260,6 +253,9 @@
       <div class="layout">
         <!-- Columna izquierda: secciones de la guía -->
         <div class="cards">
+          <!-- (todo tu contenido de secciones, igual que ya tenías) -->
+          <!-- ... copio íntegro lo que pusiste ... -->
+
           <section class="card" id="pantalla-principal">
             <div class="sectionLabel">01 · Pantalla principal</div>
             <h2>Pantalla principal</h2>
@@ -414,18 +410,19 @@
         <div>
           <p class="fTitle">NavIA</p>
           <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#funciones">Funciones</a>
-          <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#capturas">Capturas</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#capturas">Interfaz</a>
           <a class="fLink" href="https://naviasoporte-ctrl.github.io/web/#descarga">Descarga</a>
         </div>
 
         <div>
           <p class="fTitle">Legal</p>
-          <a class="fLink" href="https://naviasoporte-ctrl.github.io/privacy/" target="_blank" rel="noopener">Privacidad</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/privacy/">Privacidad</a>
         </div>
 
         <div>
           <p class="fTitle">Ayuda</p>
-          <a class="fLink" href="https://naviasoporte-ctrl.github.io/support/" target="_blank" rel="noopener">Soporte</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/guide/">Guía de uso</a>
+          <a class="fLink" href="https://naviasoporte-ctrl.github.io/support/">Soporte</a>
         </div>
 
         <div>
