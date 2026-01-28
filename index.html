@@ -376,18 +376,20 @@
             mapa ampliado, webcams y brújula.
           </p>
           <div class="videoFrame">
-            <!-- Sustituye el src por la URL real de tu vídeo (YouTube, Vimeo, etc.) -->
-            <iframe
-              src="https://github.com/naviasoporte-ctrl/guide/blob/main/navIA_guia_uso.mp4"
-              title="Guía de uso NavIA"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+            <video
+              id="naviaVideo"
+              controls
+              preload="metadata"
+              poster="./poster_navIA_guia_uso.jpg"
+              style="width:100%; height:100%; display:block; object-fit:cover;"
+            >
+              <source src="./navIA_guia_uso.mp4" type="video/mp4" />
+              Tu navegador no soporta reproducir vídeo HTML5.
+            </video>
           </div>
           <p class="videoNote">
             Consejo: abre el vídeo a pantalla completa si quieres seguir la guía mientras navegas por la App en tu dispositivo.
           </p>
-
           <p class="miniTitle">Atajos rápidos</p>
           <ul>
             <li><a href="#pantalla-principal">Ir a pantalla principal</a></li>
